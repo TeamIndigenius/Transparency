@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+/* added by aa: april 3 */
+
+body{
+	margin:0;
+}
+.center{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+header{
+	background-color: black;
+	color: white;
+	padding: 15px;
+	margin-bottom: 7%;
+}
+.nav-bar{
+}
+
+.nav-bar div{
+	width: 33.33%;
+	display: inline-block;
+}
+
+#page-title{
+	text-align: center;
+}
+
+.nav-bar a{
+	letter-spacing: 2px;
+	font-family: Montserrat;
+	font-size: 28px;
+	color: white;
+	text-decoration: none;
+}
+
+/*body styles*/
+h1{
+	/* ABOUT */
+	letter-spacing: 2px;
+	font-family: Montserrat;
+	font-size: 28px;
+	margin: 0;
+	text-transform: uppercase;
+}
+h2{
+	font-size: 16px;
+	margin: 0;
+}
+
+.arrow{
+	margin-right: auto; margin-left: auto;
+	width: 14%;
+	margin-bottom: 0.5%;
+}
+.org{
+	padding: 3px;
+	text-transform: uppercase;
+	margin-bottom: 2%;
+	text-align: center;
+	letter-spacing: 5px;
+	font-family: Lato;
+	color: white;
+}
+#skimmers{
+	background-color: #281D30;
+	border: 3px solid #281D30;
+}
+
+#clovers{
+	background-color: #182820;
+	border: 3px solid #182820;
+}
+
+#elektrons{
+	background-color: #4c3b27;
+	border: 3px solid #4c3b27;
+}
+
+#redbolts{
+	background-color: #593637;
+	border: 3px solid #593637;
+}
+
+#triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 96px solid transparent;
+	border-right: 96px solid transparent;
+	border-top: 60px solid #1f1f1f;
+}
+
+.welcome{
+	margin-bottom: 2%;
+}
+
+.welcome p{
+	text-transform: uppercase;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
+#welcome-gray{
+	color: 	#696969;
+}
+
+.login-btn a{
+	font-family: Montserrat;
+	font-size: 17px;
+	padding: 4px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 7px;
+	border: 2px solid #696969;
+	color: #696969;
+	text-decoration: none;
+}
+
+.login-btn a:hover{
+	background-color: #696969;
+	color: white;
+	text-decoration: none;
+}
+
+/*========================modal============================================*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    height: 100vh;
+    padding: 30px;
+    border: 1px solid #888;
+/*    width: 100%;*/
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*=========================modal content login==================================================*/
+.logo{
+	width: 22.1%;
+	background-color: #C1C1C1;
+	margin-right: auto; margin-left: auto;
+	border: 3px solid #5B5B5B;
+	border-bottom: none;
+}
+
+.logo p{
+	padding-top: 10px;
+	text-align: center;
+	font-family: Montserrat;
+	letter-spacing: 5px;
+}
+
+.input-container{
+	width: 20%;
+	margin-right: auto; margin-left: auto;
+}
+
+input[type=text], input[type=password]{
+	padding: 5px;
+	border: none;
+	border: 3px solid #5B5B5B;
+	font-size: 17px;
+}
+
+form{
+	display: inline-flex;
+}
+
+input[type=submit]{
+	background-color: #5B5B5B;
+	font-size: 16.9px;
+    border: 3px solid #5B5B5B;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.submit-btn{
+	display: inline-flex;
+}
+
+input[type=submit]:focus{
+	outline: none;
+}

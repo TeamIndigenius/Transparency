@@ -1,0 +1,102 @@
+body{
+	margin:0;
+}
+.center{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+header{
+	background-color: black;
+	color: white;
+	padding: 15px;
+	margin-bottom: 7%;
+}
+.nav-bar{
+	font-family: Bebas Neue;
+	font-size: 30px;
+	color: white;
+}
+
+.nav-bar div{
+	width: 33.33%;
+	display: inline-block;
+}
+
+#page-title{
+	text-align: center;
+}
+
+.nav-bar a{
+	color: white;
+	text-decoration: none;
+}
+
+.page-title{
+	font-family: Bebas Neue;
+	font-size: 30px;
+	letter-spacing: 3px;
+}
+
+.logo{
+	width: 22.1%;
+	background-color: #C1C1C1;
+	margin-right: auto; margin-left: auto;
+	border: 3px solid #5B5B5B;
+	border-bottom: none;
+	border-radius: 5px;
+}
+
+.logo p{
+	padding-top: 10px;
+	text-align: center;
+	font-family: Montserrat;
+	letter-spacing: 5px;
+}
+
+.input-container{
+	width: 20%;
+	margin-right: auto; margin-left: auto;
+}
+
+input[type=text], input[type=password]{
+	padding: 5px;
+	border: none;
+	border: 3px solid #5B5B5B;
+	font-size: 17px;
+}
+
+form{
+	display: inline-flex;
+}
+
+input[type=submit]{
+	background-color: #5B5B5B;
+	font-size: 16.9px;
+    border: 3px solid #5B5B5B;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.submit-btn{
+	display: inline-flex;
+}
+
+input[type=submit]:focus{
+	outline: none;
+}
+
+#error-msg-div{
+	text-align: center;
+	margin-top: 10px;
+	font-family: 'Arial';
+}
+
+.error-msg{
+	font-size: 13px;
+	font-weight: 100;
+	font-stretch: 2px;
+}

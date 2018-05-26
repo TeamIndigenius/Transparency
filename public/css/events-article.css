@@ -1,0 +1,221 @@
+main#events-article-main
+{
+	background-color: floralwhite;
+	width: 80%;
+	position: relative;
+	top: 56px;
+	z-index: 1;
+
+	/*display-format*/
+	display: grid;
+	grid-template-rows: 200px 1fr 1fr;
+	grid-template-columns: 20% 80%;
+	grid-template-areas: 
+	"header header"
+	"aside picture"
+	"aside section";
+
+	grid-gap: 2em 1em;
+	justify-content: center;
+	
+
+}
+
+#events-article-main header#main-header
+{	
+	grid-area: header;
+	/*background-color: crimson;*/
+	width: 100%;
+	height: 200px;
+	margin-top: 10px; 
+
+	/*display-format*/
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+
+	/*design*/
+	border-top: 3px solid silver;
+	border-bottom: 3px solid silver;
+	background: none;
+	position: relative;
+
+
+
+
+}
+
+#events-article-main header#main-header label
+{
+	width: 20%;
+	color: black;
+	/*background-color: deeppink;*/
+	align-self: center;
+	line-height: 1em;
+	margin-left: 0;
+	font-family: serif;
+
+}
+
+#events-article-main #main-header-event-title
+{
+	width: 60%;
+	height: 100%;
+	color: black;
+	/*background-color: darkviolet;*/
+	text-align: center;	
+	display: flex;
+	justify-content: center;
+
+	/*design*/
+	border-left: 3px solid silver;
+	border-right: 3px solid silver;
+}
+
+#events-article-main #main-header-event-title h1
+{
+	align-self: center;
+	font-size: 100px;
+}
+
+
+main#events-article-main aside
+{
+	grid-area: aside;
+	/*background-color: tomato;*/
+	width: 100%;
+	text-align: center;
+	border-right: 3px solid silver;
+	color: black;
+
+}
+main#events-article-main aside ul
+{
+	padding-left: 0px;
+}
+
+
+main#events-article-main aside ul li 
+{   
+
+    height: 60px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+}
+
+main#events-article-main aside ul li label 
+{ 
+    font-weight: 700;
+}
+
+.position
+{
+    font-size: 13px;
+}
+
+main#events-article-main section
+{
+	grid-area: section;
+	/*background-color: lightcoral;*/
+	width: 60%;
+	height: 25vh;
+    margin: 1em auto auto;
+	display: flex;
+
+
+    /*design*/
+	border: 3px solid silver;
+    font-weight: 400;
+    font-family: 'Roboto',sans-serif;
+
+}
+
+#events-article-main section div
+{
+	color: silver;
+	display: flex;
+    justify-content: center;
+	flex-direction: column;
+    text-align: left;
+    line-height: 0.5em;
+	
+	/*background-color: teal;*/
+}
+
+#events-article-main section div a
+{
+    color: silver;
+}
+
+#events-article-main section div:first-child
+{
+	width: 30%;
+	border-right: 3px solid silver;
+    text-align: center;
+    margin-right: 1em;
+    background-color: #f5f2f26e;
+}
+
+
+
+#events-article-main section div:first-child a:hover
+{
+    color:black;
+}
+
+.fa-download
+{
+    font-size: 1.5em;
+}
+#events-article-main section div label
+{
+	
+	align-self: center;
+	font-size: 2em;
+    margin-top: 13%;
+}
+
+
+
+
+#events-article-main main picture
+{
+	grid-area: picture;
+	background-color: firebrick;
+	max-height: 500px;
+	max-width:100%;
+	overflow:hidden;
+}
+
+button#return-events
+{
+	position: sticky;
+	width: 10em;
+	height: 2em;
+	top: 200px;
+	z-index: 7;
+	margin-left: 1em;
+	align-self: flex-start;
+	background:none;
+	border:none;
+}
+.fa-caret-left
+{
+	margin-right: 0.5em;
+}
+
+#return-events a
+{
+	text-decoration: none;
+	color: black;
+	font-size: 1.5em;
+	font-weight: 700;
+	font-family: 'Roboto', sans-serif;
+
+}
+
+button#return-events a:hover
+{
+	color: slategrey;
+}

@@ -1,0 +1,82 @@
+/*===================== HEADER =====================*/
+
+header{
+    background-color: #1f1f1f;/*dark grey*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 54px;   
+   
+    display: flex;
+    justify-content: flex-end;
+    z-index: 5;
+}
+
+header label
+{
+    width: 85%;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 150px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 54px;
+
+}
+
+header ul 
+{
+    width: 150px;
+    margin:0;
+    padding:0px;
+    list-style: none;
+    /*centers username*/
+    text-align: center;
+    vertical-align: middle;
+    line-height: 54px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+header ul li ul li
+{
+    display: none;
+    width: 150px;
+    color: white;
+    background-color: #1f1f1f;/*dark grey*/
+    margin: auto;
+
+
+}
+
+
+header ul:hover
+{
+   background-color: grey;
+}
+
+header ul li:hover ul li,header ul:hover li ul li
+{
+    animation: load 0.5s forwards;
+    display: block;
+
+}
+
+header ul li ul li:hover
+{
+   background-color: grey;
+}
+
+
+
+
+/*===================== END OF HEADER =====================*/

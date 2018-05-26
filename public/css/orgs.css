@@ -1,0 +1,189 @@
+body
+{
+    background-color: white;
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+header{
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+.nav-bar a
+{
+    letter-spacing: 2px;
+    font-family: Montserrat;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+
+.nav-bar{
+    background-color: black;
+}
+
+.nav-bar div{
+    width: 33.33%;
+    display: inline-block;
+}
+
+#orgs
+{
+    color: white;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+#back-button
+{
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 12px 30px;
+    font-size: 20px;
+}
+
+#organizations
+{
+    margin-top: 0px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main
+{
+    text-align: center;
+    padding: 130px;
+    padding-top: 110px;
+    /*background: gray;*/
+
+}
+.main div{
+    margin-right: 15px;
+}
+
+/*==================org-label=============================*/
+.org-label label{
+    padding-top: 3px;
+    padding: 2px 8px;
+    color: white;
+    font-family: 'Ubuntu';
+    letter-spacing: 2px;
+    display: block;
+}
+
+.org-label p{
+    font-family: 'Ubuntu';
+    letter-spacing: 2px;
+    display: block;
+}
+/*====================dropdown============================*/
+.dropbtn {
+    background-color: white;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5%;
+    min-width: 150px;
+    /*border-radius: 50%;*/
+    font-family: 'Poppins', sans-serif;
+    font-size: 130px;
+    margin-right: 20px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.dropbtn:focus{
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.org-label {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown:hover .org-label {
+    display: block;
+}
+
+
+/*==================redbolts==========================*/ 
+#redbolts-btn{
+    border: 8px solid red;
+    color: red;
+}
+#redbolts-label{
+    background: red;
+}
+#redbolts-select{
+    color: red;
+}
+#redbolts-btn:hover{
+    color: white;
+    border: 8px solid red;
+    background: red;
+
+}
+/*===================clovers==============================*/
+#clovers-btn{
+    border: 8px solid green;
+    color: green;
+}
+#clovers-label{
+    background: green;
+}
+#clovers-select{
+    color: green;
+}
+#clovers-btn:hover{
+    color: white;
+    border: 8px solid green;
+    background: green;
+}
+/*======================skimmers=========================*/
+#skimmers-btn{
+    border: 8px solid purple;
+    color: purple;
+}
+#skimmers-label{
+    background: purple;
+}
+#skimmers-select{
+    color: purple;
+}
+#skimmers-btn:hover{
+    color: white;
+    border: 8px solid purple;
+    background: purple;
+}
+/*=======================elektrons===========================*/
+#elektrons-btn{
+    border: 8px solid #FF7F00;
+    color: #FF7F00;
+}
+#elektrons-label{
+    background: #FF7F00;
+}
+#elektrons-select{
+    color: #FF7F00;
+}
+#elektrons-btn:hover{
+    color: white;
+    border: 8px solid #FF7F00;
+    background: #FF7F00;
+}
+

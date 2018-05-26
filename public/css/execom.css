@@ -1,0 +1,60 @@
+/*===================== ASIDE(execom) =====================*/
+
+#execom{
+    clear: left;
+
+    width: 20%;
+    text-align: center;
+    color:  #f26522;/*orange*/
+    border-right: 4px solid #f26522;/*orange*/
+
+}
+
+#execom h4
+{   
+    width: 100%;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    font-family: 'Rubik', sans-serif;
+    border-bottom:4px solid #f26522;/*orange*/
+    line-height: 60px;
+    text-align: center;
+    margin: 0;
+}
+
+aside#execom ul
+{
+     padding: 0;
+
+}
+aside#execom ul li 
+{   
+
+    height: 60px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+}
+
+aside#execom ul li label 
+{ 
+    font-weight: 700;
+    color: #333333;
+}
+
+aside#execom ul li p{
+    margin: 0;
+    padding-bottom: 26px;
+    padding-top: 5px;
+}
+
+
+
+.position
+{
+    font-size: 13px;
+}
+
+/*===================== END ASIDE(execom) =====================*/

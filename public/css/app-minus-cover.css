@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+/* Local Styles */
+@import url('header.css');
+@import url('navigation.css');
+@import url('execom.css');
+
+body{
+    color: white;
+    font-weight: 100;
+    align-items: center;
+    margin:0;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*===================== MAIN =====================*/
+main
+{
+    color: #f26522;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 2em;
+}
+
+content{
+    width: 80%;
+}
+
+content h1
+{
+    color:#f26522;/*orange*/
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    padding-bottom: 10px;
+}
+
+/*===================== END OF MAIN =====================*/
+
+
+
+/*===================== FOOTER =====================*/
+#footer{
+    width: 100%;
+    background-color: black;
+    padding-top: 0.5pt;
+    padding-bottom: 0.5pt;
+}
+
+#footer p{
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
