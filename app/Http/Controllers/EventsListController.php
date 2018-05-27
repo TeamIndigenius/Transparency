@@ -17,7 +17,8 @@ class EventsListController extends Controller
      */
     public function index()
     {
-        return view('events.eventlist');
+        $events = Event::orderBy('created_at', 'desc')->paginate(10);
+        return view('events.eventlist', compact('events'));
     }
 
     /**

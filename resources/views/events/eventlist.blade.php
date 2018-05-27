@@ -7,7 +7,7 @@
     <!-- JQUERY: WORD COUNT -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
-    <h1>EVENTS FOR A.Y. 2017-2018</h1>
+    <h1 id="event-header">EVENTS FOR A.Y. 2017-2018</h1>
 
     <!--UPDATE 0.1-->
     <div id="add-event-box">
@@ -62,16 +62,25 @@
 
 <!-- Dont forget the <a> tag -->
 
+    @forelse($events as $event)
     <a href="{{ url('eventArticle') }}">
         <div class="event-box">
             <!--image goes here-->
-            <img src="forest.jpg">
+            @if(empty($event->getImage($event->id)))
+                <img src="/img/no-img.jpg" width="150" height="150"></img>
+            @else
+                <img src="{{ $event->getImage($event->id) }}" width="150" height="150"></img>
+            @endif
             <div class="event-title">
-                <label>Pahampang</label>
-                <p>03-17-2018</p>
+                <label>{{ $event->title }}</label>
+                <p>{{ $event->created_at->format('m-d-Y') }}</p>
             </div>       
         </div>
     </a>
+    @empty
+        No announcements found.
+    @endforelse
+
     <a href="{{ url('eventArticle') }}">
         <div class="event-box" style="background-color: yellow;">
             
