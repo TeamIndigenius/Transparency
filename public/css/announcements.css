@@ -94,6 +94,22 @@ textarea::placeholder{
 	color: #f26522;/*orange*/
 }
 
+#form-delete{
+	display: inline;
+}
+
+#form-delete button{
+	border-style: none;
+	background-color: #F2F2F2;
+	color: #f26522;/*orange*/
+	margin: 0;
+	padding: 0;
+}
+
+#form-delete label{
+	font-size: 12px;
+}
+
 .comments-div{
 	display: none;
 	/*try*/

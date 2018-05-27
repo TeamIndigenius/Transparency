@@ -8,6 +8,16 @@
 
 <h1 id="ann-header">ANNOUNCEMENTS</h1>
 <div id="post-div">
+
+	<?php 
+		$isExecom = DB::table('positions')
+            ->join('memberships', 'positions.id', '=','memberships.position_id')
+            ->join('users', 'memberships.user_id', '=', 'users.id')
+            ->where('users.id', Auth::user()->id)
+            ->select('positions.is_execom')
+            ->value('is_execom');
+	 ?>
+
 	<!--  For execom -->
 	@if($isExecom)
 		<div class="post" id="add-announcements"> 
@@ -43,7 +53,12 @@
 				<!--  For the Post Owner -->
 				@if($announcement->getUserId($announcement->membership_id) == Auth::user()->id )
 					<a onclick="showModal({{ $announcement->id }})"><label class="hover-cursor-pointer"><i class="fa fa-edit"></i>Edit</label></a>
-					<a><label class="hover-cursor-pointer"><i class="fa fa-trash-o"></i>Delete</label></a>
+
+					<form id="form-delete" action="/timeline/{{ $announcement->id }}" method="POST">
+						{{ method_field('delete') }}
+						{{ csrf_field() }}
+						<button><label class="hover-cursor-pointer"><i class="fa fa-trash-o"></i>Delete</label></button>
+					</form>
 				@endif
 
 				<a class="hover-cursor-pointer" onclick="showComments({{ $announcement->id }})" ><i class="fa fa-comment-o hover-cursor-pointer"></i><label class="hover-cursor-pointer">{{ count($announcement->comments)}} comment(s)</label></a>
@@ -58,8 +73,9 @@
                 <span id="close-btn">&times;</span>
 
                 <h2>Edit Announcement</h2>
-                <form action="/timeline" method="POST">
-
+                <form action="/timeline/{{ $announcement->id }}" method="POST">
+                	{{ method_field('put') }}
+					{{ csrf_field() }}
 					<textarea id="edit-textarea" name="content" cols="" rows="20" autofocus>{{ $announcement->content }}</textarea>
 					<input type="hidden" name="membership_id" value="{{ $membership->id }}">
 					<input type="hidden" name="is_public" value="1">
@@ -114,55 +130,6 @@
 	@endforelse
 <!-- End of OPPPPSS :D -->
 
-	<div class="post">
-		<fieldset>
-			<legend align="left">Governor</legend>
-			<p>UI only!</p>
-			<div class="post-details">
-				<label>[Updated]</label>
-				<a href=""><i class="fa fa-edit"></i></a>
-				<a href=""><i class="fa fa-trash-o"></i></a>
-				<a class="a" onclick="hide_comment()" ><i class="fa fa-comment-o"></i><label>9 comments</label></a>
-				<label><i class="fa fa-clock-o"></i></label>
-				<label>2 minutes ago</label>
-			</div>
-		</fieldset>
-
-		<div  class="comments-div" style="display: block;"> 
-			<div class="comments clovers">
-				<label class="comments-label">Clovers:</label>
-				<p>Oyy pwede ka gate crash?!</p>
-				<div class="comment-details">
-					<label>2 minutes ago</label>
-				</div>
-			</div>
-			<div class="comments skimmers">
-				<label class="comments-label">Skimmers:</label>
-				<p>Gani man ! Charr</p>
-				<div class="comment-details">
-					<label>2 minutes ago</label>
-				</div>
-			</div>
-			<div class="comments elektrons">
-				<label class="comments-label">Elektrons:</label>
-				<p>This is a very very very long comment. Ijust wanna see
-					how it looks. Okay. Here we go. blablafsdereferegerge
-					. So stupid. Im sorry. Very very sorry.
-				</p>
-				<div class="comment-details">
-					<label>2 minutes ago</label>
-				</div>
-			</div>
-			<div class="comments">
-				<div class="add-comments">
-					<form>
-						<textarea name="" placeholder="Add comments or reply ..."></textarea>
-						<input type="submit" name="submit" value="POST">
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 <script type="text/javascript" src="js/timeline.js"></script>
 @endsection
