@@ -43,7 +43,6 @@ class Announcement extends Model
     		->select('memberships.user_id')
     		->value('user_id');
     }
-
 	
     protected $fillable = [
     	'membership_id', 'content', 'is_public'

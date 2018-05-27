@@ -106,7 +106,7 @@ class TimelineController extends Controller
     {
         $announcement = Announcement::findOrFail($id);
         $announcement->update($request->all());
-        return redirect('timeline');
+        return redirect('/timeline/');
     }
 
     /**
@@ -115,12 +115,10 @@ class TimelineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $announcement = Announcement::findOrFail($id);
         $announcement->delete();
-        // return view('timeline');
-        return $this->index();
-
+        return redirect('/timeline/');
     }
 }
