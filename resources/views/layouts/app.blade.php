@@ -7,7 +7,7 @@
 
         <link rel="icon" href="img/transparency_logo.png">
 
-        <title> Timeline | Transparency</title>
+        <title>{{ config('app.name', 'Transparency') }}</title>
 
         <!-- FontsAwesome and  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
