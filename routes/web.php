@@ -36,6 +36,6 @@ Route::resource('/comments', 'CommentController');
 
 Route::resource('/eventlist', 'EventsListController');
 
-Route::get('/igps', 'IGPController@index')->name('igps');
+Route::resource('/igps', 'IGPController');
 
 Route::get('/eventArticle', 'EventArticleController@index')->name('eventArticle');

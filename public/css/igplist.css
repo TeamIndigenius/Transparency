@@ -14,7 +14,7 @@ content{
 {
     display: none;
     width: 100%;
-    height: 540px;
+    height: 100vh;
     padding: 50px 330px;
     z-index: 30;
     position: fixed;
@@ -26,7 +26,8 @@ content{
 #close-btn {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    padding: 0px 14px;
+    font-size: 35px;
     font-weight: bold;
 }
 
@@ -40,6 +41,7 @@ content{
 /* Adding Item */
 #modal-add-item-content
 {
+    margin: 50px 30px;
     width: 700px;
     height: 500px;
     font-size: 15px;
@@ -65,9 +67,10 @@ content{
 
 /* Viewing Item */
 #modal-view-item-content{
-    width: 700px;
-    height: 500px;
+    width: 800px;
+    height: 450px;
     font-size: 15px;
+    margin: 60px 15px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 4px 4px 4px grey;
@@ -76,33 +79,35 @@ content{
 }
 
 #view-div{
-    width: 655px;
-    height: 455px;
+    width: 700;
+    height: 450px;
     display: flex;
     vertical-align: top;
     padding: 20px;
-
-    border-style: solid;
-    border-color: blue;
+    /*border-style: solid;
+    border-color: blue;*/
 }
 
 #modal-view-image{
-    width: 50%;
+    width: 400px;
+    height: 400px;
     margin-right: 20px;
     background-color: grey;
-    border-style: solid;
-    border-color: green;
+    /*border-style: solid;
+    border-color: green;*/
 
 }
 
 #modal-view-image img{
-
+    width: 400px;
+    height: 400px;
 }
 
 #modal-view-details{
     width: 50%;
-    border-style: solid;
-    border-color: red;
+    height: 57vh;
+    /*border-style: solid;
+    border-color: red;*/
 }
 
 #modal-view-details h2, #modal-view-details h3{
@@ -110,7 +115,43 @@ content{
 }
 
 #modal-view-details p{
+    font-size: 15px;
+    font-weight: 500;
+}
 
+form{
+    width: 91%;
+    display: inline-block;
+    text-align: left;
+    border-top: 5px solid tomato;
+    padding: 20px 30px;
+}
+
+input[type=submit] {
+    background-color: white;
+    border: 5px solid tomato;
+    margin: 0 38%;
+    padding: 10px 20px;
+    text-align: center;
+    color: tomato;
+    font-size: 15px;
+}
+
+input[type=submit]:hover {
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+}
+    
+
+input[type=text], textarea
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 
@@ -125,7 +166,7 @@ content{
 
 .newItem-box {
     width: 234px;
-    height: 100vh;
+    height: 300px;
     display: flex;
     background-color: #efeeea;
     color: #d1cfca;

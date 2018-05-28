@@ -17,7 +17,8 @@ class IGPController extends Controller
      */
     public function index()
     {
-        return view('igps.igplist');
+        $igps = IGP::orderBy('created_at', 'desc')->paginate(10);
+        return view('igps.igplist', compact('igps'));
     }
 
     /**
@@ -39,7 +40,7 @@ class IGPController extends Controller
     public function store(Request $request)
     {
         IGP::create($request->all());
-        return redirect('igps.igplist');
+        return redirect('/timeline');
         // the importance of 'redirect': hah! by:aa
     }
 
@@ -51,8 +52,8 @@ class IGPController extends Controller
      */
     public function show($id)
     {
-        $igp = IGP::findOrFail($id);
-        return view('igps.igplist');
+        $igps = IGP::findOrFail($id);
+        return view('igps.igplist', compact('igps'));
     }
 
     /**
@@ -63,8 +64,8 @@ class IGPController extends Controller
      */
     public function edit($id)
     {
-        $igp = IGP::findOrFail($id);// getting the data from the database using post id
-        return view('igps.igplist');
+        $igps = IGP::findOrFail($id);// getting the data from the database using post id
+        return view('igps.igplist', compact('igps'));
     }
 
     /**
@@ -76,9 +77,9 @@ class IGPController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $igp = IGP::findOrFail($id);
-        $igp->update($request->all());
-        return view('igps.igplist');
+        $igps = IGP::findOrFail($id);
+        $igps->update($request->all());
+        return view('igps.igplist', compact('igps'));
     }
 
     /**
@@ -89,8 +90,8 @@ class IGPController extends Controller
      */
     public function destroy($id)
     {
-        $igp = IGP::findOrFail($id);
-        $igp->delete();
-        return view('igps.igplist');
+        $igps = IGP::findOrFail($id);
+        $igps->delete();
+        return view('igps.igplist', compact('igps'));
     }
 }
