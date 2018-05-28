@@ -19,7 +19,7 @@
 .post{
 	font-family: 'Lato', sans-serif;
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	font-weight: 500;
 	font-size: 22px;
 }
@@ -56,6 +56,7 @@ fieldset p{
 	margin: 0;
 	padding: 2px 0;
 	color: #333333;
+	text-align: center;
 }
 
 #add-announcements fieldset{
@@ -67,7 +68,16 @@ fieldset p{
 	width: 87%;
 }
 
+input[type="submit"]{
+	outline: none;
+}
+
+button{
+	outline: none;
+}
+
 textarea::placeholder{
+	color: #C9C9C9;
 	text-transform: capitalize;
 }
 
@@ -99,14 +109,30 @@ textarea::placeholder{
 }
 
 #form-delete button{
-	border-style: none;
-	background-color: #F2F2F2;
+	border: none;
+	background-color: transparent;
 	color: #f26522;/*orange*/
 	margin: 0;
 	padding: 0;
 }
 
 #form-delete label{
+	font-size: 12px;
+}
+
+#form-c-delete{
+	display: inline;
+}
+
+#form-c-delete button{
+	border: none;
+	background-color: transparent;
+	color: #A3A3A3;
+	margin: 0;
+	padding: 0;
+}
+
+#form-c-delete label{
 	font-size: 12px;
 }
 
@@ -251,15 +277,15 @@ input[type=submit]{ /*submit buttons*/
     font-family: 'Roboto', sans-serif;
 }
 
-#modal-div
+.modal-div
 {
-    width: 700px;
+    width: 600px;
     /*height: 500px;*/
     margin: auto;
     font-size: 15px;
     background-color: white;
-    border-radius: 20px;
-    box-shadow: 4px 4px 4px grey;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #A6A6A6;
     z-index: 30;
     display: block;
 }
@@ -280,12 +306,33 @@ input[type=submit]{ /*submit buttons*/
     cursor: pointer;
 }
 
-#modal-div h2, #modal-div label
+#close-cbtn 
+{
+    color: #aaa;
+    float: right;
+    margin-right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close-cbtn:hover,#close:focus 
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-div h2, .modal-div label
 {
     margin: 0;
 }
 
-#modal-div h2
+.modal-div form textarea{
+	border-style: solid;
+	border-color: #CFCFCF;
+}
+
+.modal-div h2
 {
     padding-top: 15px;
     padding-bottom: 10px;
@@ -293,22 +340,22 @@ input[type=submit]{ /*submit buttons*/
     text-transform: uppercase;
 }
 
-#modal-div label
+.modal-div label
 {
     font-weight: 700;
     text-align: left;
 }
 
-#done-btn{
+.done-btn{
 	position: relative;
-	right: 30px;
+	right: 28px;
 	text-align: right;
 /*	background-color: grey;*/
 	padding-bottom: 15px;
 	padding-top: 15px;
 }
 
-#done-btn input{
+.done-btn input{
 	color: #5B5B5B;
 	background: white;
 	font-weight: 600;
@@ -319,7 +366,7 @@ input[type=submit]{ /*submit buttons*/
     text-transform: uppercase;
 }
 
-#done-btn input:hover{
+.done-btn input:hover{
     background: #5B5B5B;
     color: white;
     cursor: pointer;
@@ -330,5 +377,19 @@ input[type=submit]{ /*submit buttons*/
 	border-color: grey;
 }
 
+#c-form{
+	padding-left: 30px;
+	padding-right: 0;
+	margin: 0;
+}
+
+#c-done-btn{
+	position: relative;
+	right: 45px;
+}
+
+h2{
+	text-align: center;
+}
 
 /*===================== END OF ANNOUNCEMENTS =====================

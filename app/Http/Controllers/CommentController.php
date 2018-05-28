@@ -91,7 +91,7 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
         $comment->update($request->all());
-        return view('timeline');
+        return redirect('/timeline/');
     }
 
     /**
@@ -104,6 +104,6 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
         $comment->delete();
-        return view('timeline');
+        return redirect('/timeline/');
     }
 }

@@ -14,9 +14,17 @@ function showComments(el){
 
 // Script for edit modal
 var modal = document.getElementsByClassName('modal-whole-div');
+var cmodal = document.getElementsByClassName('cmodal');
 var close_btn = document.getElementById('close-btn');
+var close_cbtn = document.getElementById('close-cbtn');
 function showModal(el){
 	var id = 'modal-'+el;
+	var edit_modal = document.getElementById(id);
+	edit_modal.style.display = "block";
+}
+
+function showCommentModal(el){
+	var id = 'modal-comment-'+el;
 	var edit_modal = document.getElementById(id);
 	edit_modal.style.display = "block";
 }
@@ -29,8 +37,14 @@ window.onclick = function(event)
     }
 
     for (var i = modal.length - 1; i >= 0; i--) {
-    	if(event.target == modal[i] || event.target == close_btn){
+    	if(event.target == modal[i] || event.target == close_btn || event.target == close_cbtn){
     		modal[i].style.display = "none";
+    	}
+    }
+
+    for (var i = cmodal.length - 1; i >= 0; i--) {
+    	if(event.target == cmodal[i] || event.target == close_cbtn){
+    		cmodal[i].style.display = "none";
     	}
     }
 }
