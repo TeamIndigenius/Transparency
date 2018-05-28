@@ -1,102 +1,260 @@
-main#events-article-main
-{
-	background-color: floralwhite;
-	width: 80%;
-	position: relative;
-	top: 56px;
-	z-index: 1;
-
-	/*display-format*/
-	display: grid;
-	grid-template-rows: 200px 1fr 1fr;
-	grid-template-columns: 20% 80%;
-	grid-template-areas: 
-	"header header"
-	"aside picture"
-	"aside section";
-
-	grid-gap: 2em 1em;
-	justify-content: center;
-	
-
+#main-header{
+	margin-top: 30px;
+	border-bottom: 4px solid #f26522;
+	padding: 15px;
+	background: #F5F5F5;
+	display: block;
 }
 
-#events-article-main header#main-header
-{	
-	grid-area: header;
-	/*background-color: crimson;*/
-	width: 100%;
-	height: 200px;
-	margin-top: 10px; 
+#event-acad-year{
+	color: black;
+	font-size: 20px;
+	font-family: 'Roboto';
+	letter-spacing: 5px;
+}
 
-	/*display-format*/
+#main-header-event-title h1{
+	font-size: 80px;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+}
+
+#event-information{
+	color: black;
+	font-family: 'Rubik';
+	word-spacing: 5px;
+}
+
+.main-event-content{
 	display: flex;
-	flex-direction: row;
-	text-align: center;
-
-	/*design*/
-	border-top: 3px solid silver;
-	border-bottom: 3px solid silver;
-	background: none;
-	position: relative;
-
-
-
-
 }
 
-#events-article-main header#main-header label
-{
-	width: 20%;
-	color: black;
-	/*background-color: deeppink;*/
-	align-self: center;
-	line-height: 1em;
-	margin-left: 0;
-	font-family: serif;
-
+/*=============add image============================*/
+#main-header{
+	margin-top: 30px;
+	border-bottom: 4px solid #f26522;
+	padding: 15px;
+	background: #F5F5F5;
+	display: block;
 }
 
-#events-article-main #main-header-event-title
-{
-	width: 60%;
-	height: 100%;
+#event-acad-year{
 	color: black;
-	/*background-color: darkviolet;*/
-	text-align: center;	
+	font-size: 20px;
+	font-family: 'Roboto';
+	letter-spacing: 5px;
+}
+
+#main-header-event-title h1{
+	font-size: 80px;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+}
+
+#event-information{
+	color: black;
+	font-family: 'Rubik';
+	word-spacing: 5px;
+}
+
+.main-event-content{
 	display: flex;
-	justify-content: center;
-
-	/*design*/
-	border-left: 3px solid silver;
-	border-right: 3px solid silver;
 }
 
-#events-article-main #main-header-event-title h1
+/*=============add image============================*/
+#add-image-box
 {
-	align-self: center;
-	font-size: 100px;
+    width: 234px;
+    height: 237px;
+    display: flex;
+    background-color: #efeeea;
+    color: #d1cfca;
+    border: 3px solid #efeeea;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction:column;
+    border-radius: 5px;
 }
 
 
-main#events-article-main aside
+#add-image-box label
 {
-	grid-area: aside;
-	/*background-color: tomato;*/
-	width: 100%;
-	text-align: center;
-	border-right: 3px solid silver;
-	color: black;
-
+    font-size: 70px;
+    text-align:center;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    line-height: 0.3em;
 }
-main#events-article-main aside ul
+
+#add-image-box:hover
 {
-	padding-left: 0px;
+    color: #efeeea;
+    background-color: #d1cfca;
+    cursor: pointer;
+    border: 3px solid #d1cfca;
 }
 
+#add-image-box span
+{
+    font-size: 20px;
+    text-align:center;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+}
 
-main#events-article-main aside ul li 
+.fa-plus
+{
+    text-align:center;
+}
+
+/*============add image modal============================*/
+#add-image-modal-whole-div
 {   
+    display: none;
+    width: 100%;
+    height: 100vh;
+    padding: 50px 0;
+    z-index: 30;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(105,105,105,0.5);
+    color: #5B5B5B;
+    font-family: 'Roboto', sans-serif;
+}
+
+#add-image-modal-div
+{	
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    margin-top: 80px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px grey;
+    z-index: 30;
+    display: block;
+    overflow-x: auto;
+}
+
+#close-btn 
+{
+    color: #aaa;
+    float: right;
+    margin-right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close-btn:hover,#close:focus 
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#add-image-modal-div h2, #add-image-modal-div label
+{
+    margin: 0;
+}
+
+
+#add-image-modal-div h2
+{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+/*#dvPreview{
+	display: inline-flex;
+}
+*/
+/*-----------form------------------*/
+#add-image-modal-div form{
+	padding: 15px;
+	text-align: left;
+}
+
+#add-image-modal-div input[type=submit]{
+	margin-top: 2%;
+    font-weight: 600;
+    font-family: 'Roboto';
+    font-size: 17px;
+    border: 1px solid #5B5B5B;
+    border-radius: 8px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    background: white;
+    letter-spacing: 2px;
+    color: #5B5B5B;
+}
+
+#add-image-modal-div input[type=submit]:hover{
+    background: #5B5B5B;
+    color: white;
+    cursor: pointer;
+}
+
+/*-------file btn------------------*/
+#add-image-modal-div input[type=file]:focus{
+    outline: none;
+}
+#add-image-modal-div input[type=file]::-webkit-file-upload-button {
+    font-family: 'Roboto';
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid #5B5B5B;
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: white;
+    letter-spacing: 2px;
+    color: #5B5B5B;
+}
+#add-image-modal-div input[type=file]::-webkit-file-upload-button:hover{
+    background: #EAEAEA;
+}
+#add-image-modal-div input[type=file]::-webkit-file-upload-button:focus{
+    outline: none;
+}
+
+/*============end add image modal=======================*/
+
+/*==============EXECOM STYLE===========================*/
+
+#execom{
+    /*clear: left;*/
+    width: 20%;
+    text-align: center;
+    color:  black;/*orange*/
+    border-right: 4px solid #f26522;/*orange*/
+    /*background: lightblue;*/
+}
+
+#execom h4{   
+    width: 100%;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    font-family: 'Rubik', sans-serif;
+    border-bottom:0px solid silver;
+    line-height: 60px;
+    text-align: center;
+    margin: 0;
+}
+
+aside#execom ul{
+     padding: 0;
+
+}
+aside#execom ul li {   
 
     height: 60px;
     letter-spacing: 0.1em;
@@ -104,99 +262,102 @@ main#events-article-main aside ul li
     font-family: 'Raleway', sans-serif;
 }
 
-main#events-article-main aside ul li label 
-{ 
+aside#execom ul li label { 
     font-weight: 700;
 }
 
-.position
-{
+aside#execom ul li p{
+    margin: 0;
+    padding-bottom: 26px;
+    padding-top: 5px;
+}
+
+.position{
     font-size: 13px;
 }
 
-main#events-article-main section
-{
-	grid-area: section;
-	/*background-color: lightcoral;*/
-	width: 60%;
-	height: 25vh;
-    margin: 1em auto auto;
-	display: flex;
+/*============== END EXECOM STYLE===========================*/
 
-
-    /*design*/
-	border: 3px solid silver;
-    font-weight: 400;
-    font-family: 'Roboto',sans-serif;
-
+.event-content{
+	width: 80%;
+	color: black;
+	font-family: 'Rubik';
+	/*background: pink;*/
+	/*float: right;*/
+	display: inline-flex;
 }
 
-#events-article-main section div
-{
-	color: silver;
-	display: flex;
-    justify-content: center;
-	flex-direction: column;
-    text-align: left;
-    line-height: 0.5em;
+/*==========event images container=========*/
+.event-image-container{
+	width: 85%;
+	/*background: pink;*/
+}
+
+.event-image-container label{
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 30px;
 	
-	/*background-color: teal;*/
 }
 
-#events-article-main section div a
+.display-event-images{
+	display: flex;
+    flex-flow: row wrap;
+}
+
+.image-box
 {
-    color: silver;
+    width: 234px;
+    height: 237px;
+    display: flex;
+    border: 3px solid #1f1f1f;/*dark grey*/
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    border-radius: 5px;
 }
 
-#events-article-main section div:first-child
+.image-box img
 {
-	width: 30%;
-	border-right: 3px solid silver;
-    text-align: center;
-    margin-right: 1em;
-    background-color: #f5f2f26e;
+   height: 237px;
+   width: 234px;
+   align-self: center;
+   background-color: tomato;
 }
 
-
-
-#events-article-main section div:first-child a:hover
-{
-    color:black;
+/*==========event doc container=========*/
+.event-doc-container{
+	border-left: dashed 3px gray;
+}
+.event-doc-container label{
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 30px;
+	letter-spacing: 6px;
+}
+.event-doc-container > a{
+	text-decoration: underline;
 }
 
-.fa-download
-{
-    font-size: 1.5em;
-}
-#events-article-main section div label
-{
-	
-	align-self: center;
-	font-size: 2em;
-    margin-top: 13%;
+.event-doc-container form{
+	background-color: #efeeea;
+	padding: 3px;
 }
 
-
-
-
-#events-article-main main picture
-{
-	grid-area: picture;
-	background-color: firebrick;
-	max-height: 500px;
-	max-width:100%;
-	overflow:hidden;
-}
-
+/*============return button=====================*/
 button#return-events
 {
-	position: sticky;
+	position: relative;
 	width: 10em;
 	height: 2em;
-	top: 200px;
-	z-index: 7;
+	top: 70px;
+	/*z-index: 7;*/
 	margin-left: 1em;
-	align-self: flex-start;
+	float: right;
+	/*align-self: flex-start;*/
 	background:none;
 	border:none;
 }
