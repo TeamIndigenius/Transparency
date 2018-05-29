@@ -3,6 +3,10 @@ content{
     flex-flow: row wrap;
 }
 
+label .fa-edit .fa-trash-o {
+    font-size: 20px;
+}
+
 .fa-plus{
     font-size: 100px;
     padding: 0px 60px ;
@@ -70,7 +74,7 @@ content{
     width: 800px;
     height: 450px;
     font-size: 15px;
-    margin: 60px 15px;
+    margin: 80 15px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 4px 4px 4px grey;
