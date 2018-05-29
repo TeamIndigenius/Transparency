@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Auth;
 use App\Membership;
 use App\Organization;
@@ -45,14 +46,17 @@ class IGPController extends Controller
         $igp = new IGP;
         $doc = new Document; 
         $igp->title = $request->item_name;
-        $igp->content = $request->input('description');
+        $igp->content = Input::get('description', false);
         $igp->price = $request->price;
         $igp->is_public = 1;
         $doc->is_public = 1;
         $doc->file_type = 'image';
-        $doc->file_name = $request->item_image;
-        $doc->file_path = "/uploads/media/ " . $request->item_image;
+        $doc->file_name = $request->file('item_image')->getClientOriginalName();
+        $doc->file_path = "/uploads/media/" . $request->file('item_image')->getClientOriginalName();
         $igp->membership_id = Auth::user()->id;
+
+        $image = $request->file('item_image')->getClientOriginalName();
+        Image::make($request->file('item_image')->getRealPath())->resize(400, 400)->save(public_path('/uploads/media/'.$image));
 
         $doc->save();
         $igp->doc_id = $doc->id;    
