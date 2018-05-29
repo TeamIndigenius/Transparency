@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Membership;
 use App\Organization;
+use App\Document;
 use App\IGP;
+use Image;
 
 class IGPController extends Controller
 {
@@ -28,8 +30,7 @@ class IGPController extends Controller
      */
     public function create()
     {
-        //
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -39,8 +40,26 @@ class IGPController extends Controller
      */
     public function store(Request $request)
     {
-        IGP::create($request->all());
-        return redirect('/timeline');
+        //IGP::create($request->all());
+
+        $igp = new IGP;
+        $doc = new Document; 
+        $igp->title = $request->item_name;
+        $igp->content = $request->input('description');
+        $igp->price = $request->price;
+        $igp->is_public = 1;
+        $doc->is_public = 1;
+        $doc->file_type = 'image';
+        $doc->file_name = $request->item_image;
+        $doc->file_path = "/uploads/media/ " . $request->item_image;
+        $igp->membership_id = Auth::user()->id;
+
+        $doc->save();
+        $igp->doc_id = $doc->id;    
+        $igp->save();
+
+
+        return redirect('/igps');
         // the importance of 'redirect': hah! by:aa
     }
 
