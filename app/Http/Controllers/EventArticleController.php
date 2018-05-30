@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class EventArticleController extends Controller
 {
@@ -23,7 +26,7 @@ class EventArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -32,9 +35,29 @@ class EventArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        $file = $request->file_name;
+        $extension = $file->getClientOriginalExtension();
+        $doc = new Document; 
+
+        if ($extension=='image/jpeg'){
+            $doc->file_type = 'image';
+            $doc->file_path = "/uploads/media/" . $request->file('file_name')->getClientOriginalName();
+        }
+        else{
+             $doc->file_type = 'pdf';
+             $doc->file_path = "/uploads/docs/" . $request->file('file_name')->getClientOriginalName();
+        }
+
+        $doc->file_name = $request->file('file_name')->getClientOriginalName();
+        $doc->is_public = 1;
+
+
+        $doc->save();
+
+        return redirect('/eventArticle');
     }
 
     /**

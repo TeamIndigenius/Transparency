@@ -38,4 +38,4 @@ Route::resource('/eventlist', 'EventsListController');
 
 Route::resource('/igps', 'IGPController');
 
-Route::get('/eventArticle', 'EventArticleController@index')->name('eventArticle');
+Route::resource('/eventArticle', 'EventArticleController');

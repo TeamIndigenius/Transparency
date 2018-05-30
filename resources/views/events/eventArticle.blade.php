@@ -87,8 +87,9 @@
                                 <h2>Add Image</h2>
 
                                 <!-- limit to images only -->
-                                <form action="" method="post" enctype="multipart/form-data" accept="image/*">
-                                    <input id="imageupload" type="file" name="image[]" multiple="multiple">
+                                <form action="/eventArticle" method="post" enctype="multipart/form-data" accept="image/*">
+                                    {{csrf_field()}}
+                                    <input id="imageupload" type="file" name="file_name" multiple="multiple">
                                     <input type="submit" name="add-img" value="Add">
                                 </form>
 
@@ -162,10 +163,27 @@
                         
                     </div>
 
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div> 
+                     @endif
+
+                    <form action="/eventArticle" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <label id="btn-doc-upload">
-                           <i class="fa fa-upload"></i> Upload documents <input id="fileupload" type="file" name="doc[]" multiple="" accept=".pdf,.doc,.docx">
+                           <i class="fa fa-upload"></i> Upload documents <input id="fileupload" type="file" name="file_name" multiple="" accept=".pdf,.doc,.docx">
                         </label>
                         <input id="addDoc" type="submit" name="add-doc" value="Add">
                     </form>
