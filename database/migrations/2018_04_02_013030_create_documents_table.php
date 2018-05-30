@@ -19,6 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->enum('file_type', ['document', 'pdf', 'spreadsheet', 'image', 'video']);
             $table->string('file_path');
             $table->boolean('is_public');
+            $table->timestamps();
         });
     }
 

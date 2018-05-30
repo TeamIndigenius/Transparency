@@ -28,8 +28,15 @@ class Event extends Model
     		->value('file_path');
     }
 
+    public function scopeDocIsAvailable($query, $docId){
+        return DB::table('documents')
+            ->where('id', $docId)
+            ->select('file_path')
+            ->value($docId);
+    }
+
     protected $fillable = [
-    	'doc_id', 'membership_id', 'title', 'content', 'is_public'
+    	 'title', 'description', 'venue', 'date', 'time', 'is_public'
     ];
 
 }

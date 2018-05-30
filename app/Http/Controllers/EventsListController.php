@@ -7,6 +7,9 @@ use Auth;
 use App\Membership;
 use App\Organization;
 use App\Event;
+use App\Archive;
+// E 
+use DB;
 
 class EventsListController extends Controller
 {
@@ -18,7 +21,14 @@ class EventsListController extends Controller
     public function index()
     {
         $events = Event::orderBy('created_at', 'desc')->paginate(10);
-        return view('events.eventlist', compact('events'));
+
+        $id = Auth::user()->id;
+        $membership = DB::table('memberships')->select('id')->where('user_id', $id)->get();
+        // echo "<pre>";
+        // print_r($membership);
+
+        return view('events.eventlist', compact('events','membership'));
+
     }
 
     /**
@@ -39,8 +49,26 @@ class EventsListController extends Controller
      */
     public function store(Request $request)
     {
-        Event::create($request->all());
-        return redirect('/timeline');
+
+        $event = new Event();
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->venue = $request->venue;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->is_public = 1;
+        $event->save();
+        $event->id;
+
+        $archive = new Archive();
+        $archive->membership_id = $request->membership_id;
+        $archive->event_id = $event->id;
+        $archive->doc_id = 0;//update id later on
+        $archive->is_public = 1;
+        $archive->save();
+
+        
+        return $this->index();
         // the importance of 'redirect': hah! by:aa
     }
 

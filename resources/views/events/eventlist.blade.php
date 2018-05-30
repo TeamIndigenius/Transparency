@@ -25,6 +25,7 @@
                 <h2>Add Event</h2>
 
                 <form action="/eventlist" method="POST">
+                    {{ csrf_field() }}
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" placeholder="Enter event title here ..." required autofocus="">
 
@@ -41,6 +42,8 @@
 
                     <label for="time">Time:</label>
                     <input type="time" id="time" name="time" required>
+
+                    <input type="hidden" name="membership_id" value="{{ $membership[0]->id}}">
 
 <!-- How can I add a document on documents table. HUHUHUHU -->
                     <!-- <br/>
@@ -66,7 +69,7 @@
     <a href="{{ url('eventArticle') }}">
         <div class="event-box">
             <!--image goes here-->
-            @if(empty($event->getImage($event->id)))
+            @if(empty($event->DocIsAvailable($event->id)) == 0)
                 <img src="/img/no-img.jpg" width="150" height="150"></img>
             @else
                 <img src="{{ $event->getImage($event->id) }}" width="150" height="150"></img>
