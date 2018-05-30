@@ -14,17 +14,19 @@
         </a>
     </button>
 
-    <main id="events-article-main">
-        <div id="main-header">
-            <label id="event-acad-year"><strong>A.Y. 2017 - 2018</strong></label>
-            <div id="main-header-event-title">
-                <h1>Prom</h1>
-                <label id="event-information">
-                    <strong>Date: </strong> April 14
-                    <strong>Venue: </strong> MO2 Westown
-                </label>
-            </div>
+    <div id="main-header">
+        <label id="event-acad-year"><strong>A.Y. 2017 - 2018</strong></label>
+        <div id="main-header-event-title">
+            <h1>Prom</h1>
+            <label id="event-information">
+                <strong>Date: </strong> April 14
+                <strong>Venue: </strong> MO2 Westown
+            </label>
         </div>
+    </div>
+
+    <main id="events-article-main">
+
         <div class="main-event-content">
             <aside id="execom">
                 <h4>EXECOM</h4>
@@ -86,11 +88,11 @@
 
                                 <!-- limit to images only -->
                                 <form action="" method="post" enctype="multipart/form-data" accept="image/*">
-                                    <input id="fileupload" type="file" name="image[]" multiple="multiple">
+                                    <input id="imageupload" type="file" name="image[]" multiple="multiple">
                                     <input type="submit" name="add-img" value="Add">
                                 </form>
 
-                                <div id="dvPreview">
+                                <div id="imagePreview">
                                 </div>
 
                             </div>
@@ -138,18 +140,46 @@
 
                     <p>No files to display</p>
 
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div> 
+                    @endif
+
                     <!-- limit to docs, pdf -->
-                    <form action="" method="POST">
-                        <input type="file" name="doc" multiple="">
-                        <input type="submit" name="add-doc" value="Add">
+                    <div id="filePreview">
+                        
+                    </div>
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <label id="btn-doc-upload">
+                           <i class="fa fa-upload"></i> Upload documents <input id="fileupload" type="file" name="doc[]" multiple="" accept=".pdf,.doc,.docx">
+                        </label>
+                        <input id="addDoc" type="submit" name="add-doc" value="Add">
                     </form>
 
-                    <a href="uploads/docs/126_lec2_HTML.pdf?iframe=true" target="_blank">126_lec2_HTML.pdf</a>
+                    
 
-
-                    <!-- <a href="uploads/docs/CMSC132_IO.pdf" target="_blank">CMSC132_IO.pdf</a>
-
-                    <a href="uploads/docs/126_lec08_XML.pdf" target="_blank">126_lec08_XML.pdf</a> -->
+                    <br>
+                    <div id="display-event-docs">
+                        <a href="uploads/docs/126_lec2_HTML.pdf?iframe=true" target="_blank">126_lec2_HTML.pdf</a> <br>
+                        <a href="uploads/docs/CMSC132_IO.pdf" target="_blank">CMSC132_IO.pdf</a> <br>
+                        <a href="uploads/docs/126_lec08_XML.pdf" target="_blank">126_lec08_XML.pdf</a> <br>
+                        <a href="uploads/docs/BNF.docx" target="_blank">BNF.docx</a>
+                    </div>
+                    
 
                 </div>
                 <!-- end of event doc container -->
@@ -194,9 +224,9 @@
 
         // ------------------image preview-----------------
         $(function () {
-            $("#fileupload").change(function () {
+            $("#imageupload").change(function () {
                 if (typeof (FileReader) != "undefined") {
-                    var dvPreview = $("#dvPreview");
+                    var dvPreview = $("#imagePreview");
                     dvPreview.html("");
                     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
                     $($(this)[0].files).each(function () {
@@ -205,7 +235,7 @@
                             var reader = new FileReader();
                             reader.onload = function (e) {
                                 var img = $("<img />");
-                                img.attr("style", "height:100px;width: 100px;");
+                                img.attr("style", "height:100px;width: 100px;display:inline;");
                                 img.attr("src", e.target.result);
                                 dvPreview.append(img);
                             }
@@ -221,6 +251,48 @@
                 }
             });
         });
+
+        $(function () {
+            $("#fileupload").change(function () {
+                if (typeof (FileReader) != "undefined") {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.pdf|.doc|.docx)$/;
+                    $($(this)[0].files).each(function () {
+                        var file = $(this);
+                        if (regex.test(file[0].name.toLowerCase())) {
+                            return true;
+                        } else {
+                            alert(file[0].name + " is not a valid document file.");
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+
+        var selDiv = "";
+        
+        document.addEventListener("DOMContentLoaded", init, false);
+        
+        function init() {
+            document.querySelector('#fileupload').addEventListener('change', handleFileSelect, false);
+            selDiv = document.querySelector("#filePreview");
+        }
+            
+        function handleFileSelect(e) {
+            
+            if(!e.target.files) return;
+            
+            selDiv.innerHTML = "";
+            
+            var files = e.target.files;
+            for(var i=0; i<files.length; i++) {
+                var f = files[i];
+                
+                selDiv.innerHTML += f.name + "<br/>";
+
+            }
+            
+        }
     </script>
 
 

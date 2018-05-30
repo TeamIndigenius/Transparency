@@ -50,21 +50,23 @@
 <!-- End of Modals -->
 <!-- Display the items -->
     <!-- iterate through the IGPs -->
-    <div class="item-box">
-        <img src="{{ $igp->getImage($igp->doc_id) }}" width="150" height="150"></img>
-        <div class="item-title">
-            <label>{{ $igp->title }}</label>
-            <label>Price: {{ $igp->price }}</label>
-            <label><i class="fa fa-edit"></i>Edit</label>
+    <a class="hover-cursor-pointer" onclick="viewModal({{ $igp->id }})">
+        <div class="item-box">
+            <img src="{{ $igp->getImage($igp->doc_id) }}" width="150" height="150"></img>
+            <div class="item-title">
+                <label>{{ $igp->title }}</label>
+                <label>Price: {{ $igp->price }}</label>
+                <label><i class="fa fa-edit"></i>Edit</label>
             <label><i class="fa fa-trash-o"></i>Delete</label>
+            </div>
         </div>
-    </div>
-    <div class="modal-whole-div" id="modal-view-item">
+    </a>
+    <div class="modal-whole-div" id="modal-view-{{ $igp->id }}">
         <div id="modal-view-item-content">
             <div id="view-div">
                 <!-- <span id="close-btn">&times;</span> -->
                 <div id="modal-view-image">
-                    <img src="{{ $igp->getImage($igp->doc_id) }}" width="400" height="400"></img>
+                    <img src="{{ $igp->getImage($igp->doc_id) }}">
                 </div>
                 <div id="modal-view-details">
                     <h2>{{ $igp->title }}</h2>
@@ -100,7 +102,7 @@
         </div>
     </div>  
 
-   <!--  @if($igp->getUserId($igp->membership_id) == Auth::user()->id)
+    <!-- @if($igp->getUserId($igp->membership_id) == Auth::user()->id)
         <label><i class="fa fa-edit"></i>Edit</label>
         <label><i class="fa fa-trash-o"></i>Delete</label>
     @endif -->
@@ -134,21 +136,26 @@
         }   
 
         // View Item Modal
-        var modal = document.getElementById('modal-view-item');
-        var viewBtn = document.querySelectorAll('.item-box');
 
-        [].forEach.call(viewBtn, function(el) {
-          el.onclick = function() {
-            modal.style.display = "block";
-          }
-        })
+        var status = "none";
+        var id;
+        var item;
+        function viewModal(el){
+            id = "modal-view-"+el;
+            item = document.getElementById(id);
+            if(status == "none"){
+                status = "block";
+            }
+            else{
+                status = "none";
+            }
+            item.style.display = status;
+        }
 
-
-        window.onclick = function(event)
-        {
-            if (event.target == modal)
+        window.onclick = function(event){
+            if (event.target == item)
             {
-                modal.style.display = "none";
+                item.style.display = "none";
             }
         }
     </script>

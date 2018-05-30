@@ -18,7 +18,6 @@ class CreateIgpsTable extends Migration
             $table->integer('membership_id');
             $table->integer('doc_id');
             $table->string('title', 50);
-            $table->float('price', 5, 2);
             $table->string('content');
             $table->timestamps();
             $table->boolean('is_public');
