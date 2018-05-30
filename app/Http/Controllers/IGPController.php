@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use App\Membership;
 use App\Organization;
+use App\Document;
 use App\IGP;
+use Image;
 
 class IGPController extends Controller
 {
@@ -29,8 +31,7 @@ class IGPController extends Controller
      */
     public function create()
     {
-        //
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +41,6 @@ class IGPController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         //IGP::create($request->all());
 
         $igp = new IGP;
@@ -64,10 +64,6 @@ class IGPController extends Controller
 
 
         return redirect('/igps');
-=======
-        IGP::create($request->all());
-        return redirect('/timeline');
->>>>>>> f08fd9820eb4988f9acdfb4d5c79752be0af4520
         // the importance of 'redirect': hah! by:aa
     }
 

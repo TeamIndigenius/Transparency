@@ -17,21 +17,13 @@
         <div id="modal-add-item-content">           
             <span id="close-btn">&times;</span>
                 <h2>Add Item</h2>
-<<<<<<< HEAD
                     <form action="/igps" method="POST" enctype="multipart/form-data">
-=======
-                    <form action="/igps" method="POST">
->>>>>>> f08fd9820eb4988f9acdfb4d5c79752be0af4520
                         {{ csrf_field() }}
                         <h3>Item Name:</h3>
                         <input type="text" name="item-name" required autofocus>
 
                         <h3>Description:</h3>
-<<<<<<< HEAD
                         <textarea name="description" cols="30" rows="" placeholder="Write description and/or contact details..." required autofocus></textarea>
-=======
-                        <textarea name="description" cols="30" rows="" placeholder="Write description and/or contact details..."></textarea>
->>>>>>> f08fd9820eb4988f9acdfb4d5c79752be0af4520
 
                         <h3>Price:</h3>
                         <input type="text" name="price" required autofocus>
@@ -58,7 +50,6 @@
 <!-- End of Modals -->
 <!-- Display the items -->
     <!-- iterate through the IGPs -->
-<<<<<<< HEAD
     <a class="hover-cursor-pointer" onclick="viewModal({{ $igp->id }})">
         <div class="item-box">
             <img src="{{ $igp->getImage($igp->doc_id) }}" width="150" height="150"></img>
@@ -71,17 +62,6 @@
         </div>
     </a>
     <div class="modal-whole-div" id="modal-view-{{ $igp->id }}">
-=======
-    <div class="item-box">
-        <img src="{{ $igp->getImage($igp->doc_id) }}" width="150" height="150"></img>
-        <div class="item-title">
-            <label>{{ $igp->title }}</label>
-            <label>Price: </label>
-            <p></p>
-        </div>
-    </div>
-    <div class="modal-whole-div" id="modal-view-item">
->>>>>>> f08fd9820eb4988f9acdfb4d5c79752be0af4520
         <div id="modal-view-item-content">
             <div id="view-div">
                 <!-- <span id="close-btn">&times;</span> -->
@@ -90,7 +70,7 @@
                 </div>
                 <div id="modal-view-details">
                     <h2>{{ $igp->title }}</h2>
-                    <h3>Price:</h3>
+                    <h3>Price: {{ $igp->price }}</h3>
                     <p>{{ $igp->content }}</p>
                 </div>
             </div>
@@ -122,17 +102,10 @@
         </div>
     </div>  
 
-<<<<<<< HEAD
     <!-- @if($igp->getUserId($igp->membership_id) == Auth::user()->id)
         <label><i class="fa fa-edit"></i>Edit</label>
         <label><i class="fa fa-trash-o"></i>Delete</label>
     @endif -->
-=======
-    @if($igp->getUserId($igp->membership_id) == Auth::user()->id)
-        <label><i class="fa fa-edit"></i>Edit</label>
-        <label><i class="fa fa-trash-o"></i>Delete</label>
-    @endif
->>>>>>> f08fd9820eb4988f9acdfb4d5c79752be0af4520
 
     @empty
         No IGPs found.
@@ -163,21 +136,26 @@
         }   
 
         // View Item Modal
-        var modal = document.getElementById('modal-view-item');
-        var viewBtn = document.querySelectorAll('.item-box');
 
-        [].forEach.call(viewBtn, function(el) {
-          el.onclick = function() {
-            modal.style.display = "block";
-          }
-        })
+        var status = "none";
+        var id;
+        var item;
+        function viewModal(el){
+            id = "modal-view-"+el;
+            item = document.getElementById(id);
+            if(status == "none"){
+                status = "block";
+            }
+            else{
+                status = "none";
+            }
+            item.style.display = status;
+        }
 
-
-        window.onclick = function(event)
-        {
-            if (event.target == modal)
+        window.onclick = function(event){
+            if (event.target == item)
             {
-                modal.style.display = "none";
+                item.style.display = "none";
             }
         }
     </script>
