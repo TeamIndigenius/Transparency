@@ -116,10 +116,10 @@ class EventsListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $event = Event::findOrFail($id);
         $event->delete();
-        return view('events.eventlist', compact('event'));
+        return redirect('/eventlist/');
     }
 }

@@ -71,14 +71,21 @@
             <!--image goes here-->
             @if(empty($event->DocIsAvailable($event->id)) == 0)
                 <img src="/img/no-img.jpg" width="150" height="150"></img>
-                <form action="eventlist" method="POST" ><button class="delete-event">delete</button></form>
+               
             @else
                 <img src="{{ $event->getImage($event->id) }}" width="150" height="150"></img>
-               <form action="eventlist" method="POST" ><button class="delete-event">delete</button></form>
+                 
             @endif
             <div class="event-title">
                 <label>{{ $event->title }}</label>
                 <p>{{ $event->created_at->format('m-d-Y') }}</p>
+                
+                 <form id="delete-event" action="/eventlist/{{ $event->id }}" method="POST">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        <button><label class="hover-cursor-pointer"><i class="fa fa-trash-o"></i></label></button>
+                </form>
+
             </div>       
         </div>
     </a>
@@ -96,6 +103,7 @@
 
                     <label>Prom</label>
                     <p>04-14-2018</p>
+                   
                 </div>
         </div>
     </a>
@@ -107,7 +115,8 @@
             <div class="event-title">
                 <label>Victory Party</label>
                 <p>04-06-2018</p>
-                <form action="eventlist" method="POST" ><button class="delete-event">delete</button></form>
+             
+                    </form>
             </div>
         </div>
     </a>

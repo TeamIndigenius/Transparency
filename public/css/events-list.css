@@ -117,10 +117,24 @@ div.event-title p
     font-family: 'Roboto', sans-serif;
 }
 
-a.delete-event{
-    color:red;
+div.event-title form#delete-event{
+    color:red; 
+    border:none;  
+    padding: 0;
+    text-align: center;
+    
     /*display: none;*/
 }
+
+form#delete-event button{
+    background:none;
+    border:none;
+}
+
+form#delete-event button:hover{
+    background: crimson;
+}
+
 
 /*.event-box:hover .delete-event{
     display: block;
@@ -154,6 +168,7 @@ a.delete-event{
     z-index: 30;
     display: block;
 }
+
 
 #close-btn 
 {
