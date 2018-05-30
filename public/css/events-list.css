@@ -117,6 +117,15 @@ div.event-title p
     font-family: 'Roboto', sans-serif;
 }
 
+a.delete-event{
+    color:red;
+    /*display: none;*/
+}
+
+/*.event-box:hover .delete-event{
+    display: block;
+}*/
+
 /* ------------------------------ MODAL ------------------*/
 #modal-whole-div
 {   
