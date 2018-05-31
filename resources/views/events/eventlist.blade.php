@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/events-list.css">
     <!-- JQUERY: WORD COUNT -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.11/jquery-ui.min.js"></script>
 
     <h1 id="event-header">EVENTS FOR A.Y. 2017-2018</h1>
 
@@ -28,7 +29,7 @@
                 <form action="/eventlist" method="POST" id="form-validation">
                     {{ csrf_field() }}
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" placeholder="Enter event title here ..." required autofocus="">
+                    <input type="text" id="title" name="title" placeholder="Enter event title here(Max of 7 words) ..." required autofocus="">
 
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" rows="5" placeholder="Write a short description. (Max. of 300 words)"></textarea>
@@ -39,7 +40,7 @@
                     <input type="text" id="venue" name="venue" placeholder="Where is the event?" required>
 
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" max='' required>
+                    <input type="date" id="date" name="date"  required>
 
                     <label for="time">Time:</label>
                     <input type="time" id="time" name="time" required>
@@ -79,7 +80,7 @@
             @endif
             <div class="event-title">
                 <label>{{ $event->title }}</label>
-                <p>{{ $event->created_at->format('m-d-Y') }}</p>
+                <p>{{ $event->date}}</p>
 
                  <form id="delete-event" action="/eventlist/{{ $event->id }}" method="POST">
                         {{ method_field('delete') }}
@@ -191,7 +192,8 @@
     <script type="text/javascript" src="js/add-event-modal.js"></script>
     <!-- delete-event-model ain't working it yet -->
     <script type="text/javascript" src="js/delete-event-modal.js"></script>
-     <script type="text/javascript" src="js/validation-event.js"></script>
+    <script type="text/javascript" src="js/validation-event.js"></script>
+
 
 
 

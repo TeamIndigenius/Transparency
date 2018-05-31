@@ -8,8 +8,9 @@ use App\Membership;
 use App\Organization;
 use App\Event;
 use App\Archive;
-// E 
+use Session;
 use DB;
+use Config;
 
 class EventsListController extends Controller
 {
@@ -20,14 +21,25 @@ class EventsListController extends Controller
      */
     public function index()
     {
+        $org_id =  session()->get('org_id');
         $events = Event::orderBy('created_at', 'desc')->paginate(10);
+
+
+        $officers = DB::table('positions')
+            ->join('memberships', 'positions.id', '=','memberships.position_id')
+            ->join('users', 'memberships.user_id', '=', 'users.id')
+            ->select('positions.position', 'users.first_name', 'users.last_name')
+            ->where('memberships.org_id', $org_id)
+            ->orderBy('positions.id', 'ASC')
+            ->get();
+
 
         $id = Auth::user()->id;
         $membership = DB::table('memberships')->select('id')->where('user_id', $id)->get();
         // echo "<pre>";
         // print_r($membership);
 
-        return view('events.eventlist', compact('events','membership'));
+        return view('events.eventlist', compact('events','membership', 'officers'));
 
     }
 
@@ -120,6 +132,11 @@ class EventsListController extends Controller
     {
         $event = Event::findOrFail($id);
         $event->delete();
+        return redirect('/eventlist/');
+    }
+
+    public function setOrgID($id){
+        Session::put('org_id', $id);
         return redirect('/eventlist/');
     }
 }
