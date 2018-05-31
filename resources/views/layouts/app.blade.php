@@ -144,11 +144,27 @@
             </div>
 
  <!--================================ MAIN ==============================-->
+            <?php 
+            $orgID = 1;
+                $isExecom = DB::table('memberships')
+                    ->join('positions', 'memberships.position_id', '=', 'positions.id')
+                    ->join('users', 'memberships.user_id', '=', 'users.id')
+                    ->where('memberships.org_id', $orgID)
+                    ->select('positions.is_execom', 'users.first_name', 'users.last_name')
+                    ->value('first_name', 'last_name');
+            ?>
+
             <main>
                 <aside id="execom">
                     <h4>EXECOM</h4>
                     <ul>
-                        <li><label> Juan Dela Cruz</label>
+                        @foreach($officers as $officer)
+                            <li><label>{{ $officer->first_name}} {{$officer->last_name }}</label>
+                                <p class="position">{{ $officer->position }}</p>
+                            </li>
+                        @endforeach
+
+                        <!-- <li><label> Juan Dela Cruz</label>
                             <p class="position">Governor</p>
                         </li>
                         <li><label> Lily Cruz</label>
@@ -177,7 +193,7 @@
                         </li>
                         <li><label > Ako Si Ganda</label>
                             <p class="position">Execom</p>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </aside>

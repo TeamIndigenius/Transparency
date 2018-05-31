@@ -22,7 +22,7 @@
 			<p id="organizations"> - ORGANIZATIONS - </p>
 
 			<div class="dropdown">
-				<a href="{{ url('timeline') }}" id="redbolts" onclick="orgs(id)">
+				<a href="{{ url('accessOrg/2') }}" id="redbolts" onclick="orgs(id)">
 				  	<button class="dropbtn" id="redbolts-btn">R</button>
 			  		<div class="org-label">
 			   			<label id="redbolts-label">REDBOLTS</label>
@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="dropdown">
-				<a href="{{ url('timeline') }}" id="clovers" onclick="orgs(id)">
+				<a href="{{ url('accessOrg/3') }}" id="clovers" onclick="orgs(id)">
 				  	<button class="dropbtn" id="clovers-btn">C</button>
 			  		<div class="org-label">
 			   			<label id="clovers-label">CLOVERS</label>
@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="dropdown">
-				<a href="{{ url('timeline') }}" id="skimmers" onclick="orgs(id)">
+				<a href="{{ url('accessOrg/4') }}" id="skimmers" onclick="orgs(id)">
 				  	<button class="dropbtn" id="skimmers-btn">S</button>
 			  		<div class="org-label">
 			   			<label id="skimmers-label">SKIMMERS</label>
@@ -52,7 +52,7 @@
 			</div>
 			
 			<div class="dropdown">
-				<a href="{{ url('timeline') }}" id="elektrons" onclick="orgs(id)">
+				<a href="{{ url('accessOrg/1 ') }}" id="elektrons" onclick="orgs(id)">
 				  	<button class="dropbtn" id="elektrons-btn">E</button>
 			  		<div class="org-label">
 			   			<label id="elektrons-label">ELEKTRONS</label>

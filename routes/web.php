@@ -23,7 +23,7 @@ Route::get('/about', 'AboutController@about')->name('about');
 
 Route::get('/orgs', 'OrgsController@orgs')->name('orgs');
 
-Route::get('/timeline', 'TimelineController@index')->name('timeline');
+Route::get('/accessOrg/{id}', 'TimelineController@setOrgID')->name('timeline');
 
 // resource vs get
 Route::resource('/timeline', 'TimelineController');

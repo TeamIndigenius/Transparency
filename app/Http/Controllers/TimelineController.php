@@ -9,7 +9,9 @@ use App\Membership;
 use App\Organization;
 use App\Announcement;
 use App\Comment;
+use Session;
 use DB;
+use Config;
 
 class TimelineController extends Controller
 {
@@ -20,13 +22,22 @@ class TimelineController extends Controller
      */
     public function index()
     {
+        $org_id =  session()->get('org_id');
         $announcements = Announcement::orderBy('created_at', 'desc')->paginate(10);
-        $isExecom = DB::table('positions')
+        // $isExecom = DB::table('positions')
+        //     ->join('memberships', 'positions.id', '=','memberships.position_id')
+        //     ->join('users', 'memberships.user_id', '=', 'users.id')
+        //     ->where('users.id', Auth::user()->id)
+        //     ->select('positions.is_execom')
+        //     ->value('is_execom');
+
+        $officers = DB::table('positions')
             ->join('memberships', 'positions.id', '=','memberships.position_id')
             ->join('users', 'memberships.user_id', '=', 'users.id')
-            ->where('users.id', Auth::user()->id)
-            ->select('positions.is_execom')
-            ->value('is_execom');
+            ->select('positions.position', 'users.first_name', 'users.last_name')
+            ->where('memberships.org_id', $org_id)
+            ->orderBy('positions.id', 'ASC')
+            ->get();
         
         foreach ($announcements as $item) {
             $mem_id = $item->membership_id;
@@ -42,7 +53,7 @@ class TimelineController extends Controller
         $id = Auth::user()->id;
         $membership = Membership::whereUser_id($id)->first();
 
-        return view('timeline', compact('announcements', 'membership', 'isExecom'));
+        return view('timeline', compact('announcements', 'membership', 'isExecom', 'officers'));
     }
 
     /**
@@ -119,6 +130,11 @@ class TimelineController extends Controller
     {
         $announcement = Announcement::findOrFail($id);
         $announcement->delete();
+        return redirect('/timeline/');
+    }
+
+    public function setOrgID($id){
+        Session::put('org_id', $id);
         return redirect('/timeline/');
     }
 }
