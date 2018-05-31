@@ -18,13 +18,14 @@
     <!--END UPDATE 0.1-->
 
     <!-- MODAL -->
+    <!-- add event -->
     <div id="modal-whole-div">
             <div id="modal-div">
                 <span id="close-btn">&times;</span>
 
                 <h2>Add Event</h2>
 
-                <form action="/eventlist" method="POST">
+                <form action="/eventlist" method="POST" id="form-validation">
                     {{ csrf_field() }}
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" placeholder="Enter event title here ..." required autofocus="">
@@ -38,7 +39,7 @@
                     <input type="text" id="venue" name="venue" placeholder="Where is the event?" required>
 
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date" max='' required>
 
                     <label for="time">Time:</label>
                     <input type="time" id="time" name="time" required>
@@ -56,7 +57,7 @@
 
                     <input type="hidden" name="is_public" value="1">
 
-                    <input type="submit" name="submit" value="Submit">
+                    <input type="submit" name="submit" value="Submit" id="submit">
                     
                 </form>
             </div>
@@ -79,7 +80,7 @@
             <div class="event-title">
                 <label>{{ $event->title }}</label>
                 <p>{{ $event->created_at->format('m-d-Y') }}</p>
-                
+
                  <form id="delete-event" action="/eventlist/{{ $event->id }}" method="POST">
                         {{ method_field('delete') }}
                         {{ csrf_field() }}
@@ -98,7 +99,6 @@
             
                  <!--image goes here-->
                 <img src="forest.jpg">
-                <a class="delete-event" href="#">delete</a>
                 <div class="event-title">
 
                     <label>Prom</label>
@@ -115,8 +115,7 @@
             <div class="event-title">
                 <label>Victory Party</label>
                 <p>04-06-2018</p>
-             
-                    </form>
+           
             </div>
         </div>
     </a>
@@ -190,7 +189,11 @@
 
 <!-- JAVASCRIPT -->
     <script type="text/javascript" src="js/add-event-modal.js"></script>
+    <!-- delete-event-model ain't working it yet -->
     <script type="text/javascript" src="js/delete-event-modal.js"></script>
+     <script type="text/javascript" src="js/validation-event.js"></script>
+
+
 
 
 @endsection

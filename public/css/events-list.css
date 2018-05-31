@@ -121,7 +121,7 @@ div.event-title form#delete-event{
     color:red; 
     border:none;  
     padding: 0;
-    text-align: center;
+    text-align: left;
     
     /*display: none;*/
 }
@@ -132,7 +132,7 @@ form#delete-event button{
 }
 
 form#delete-event button:hover{
-    background: crimson;
+    size:1em;
 }
 
 
