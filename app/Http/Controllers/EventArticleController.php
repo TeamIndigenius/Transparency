@@ -6,6 +6,7 @@ use App\Document;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class EventArticleController extends Controller
 {
@@ -16,7 +17,21 @@ class EventArticleController extends Controller
      */
     public function index()
     {
-        return view('events.eventArticle');
+
+        $org_id = 1;
+        $event_id = 1;
+
+        $documents = DB::table('archives')
+            ->join('documents', 'archives.doc_id', '=','documents.id')
+            ->join('events', 'archives.event_id', '=', 'events.id')
+            ->join('memberships', 'archives.membership_id', '=','memberships.id')
+            ->where('memberships.org_id', $org_id)
+            ->select('documents.file_path')
+            ->value('documents.file_path');
+
+        // echo $documents;
+        // print_r($documents); 
+        return view('events.eventArticle', compact('documents'));
     }
 
     /**
@@ -68,7 +83,7 @@ class EventArticleController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

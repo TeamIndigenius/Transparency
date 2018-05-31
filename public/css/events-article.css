@@ -187,7 +187,27 @@
     outline: none;
 }
 
-/*============end add image modal=======================*/
+#addDoc{
+    margin-top: 2%;
+    font-weight: 600;
+    font-family: 'Roboto';
+    font-size: 17px;
+    border: 1px solid #5B5B5B;
+    border-radius: 8px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    background: white;
+    letter-spacing: 2px;
+    color: #5B5B5B;
+}
+
+#addDoc:hover{
+    background: #5B5B5B;
+    color: white;
+    cursor: pointer;
+}
+
+/*============end add modal=======================*/
 
 /*==============EXECOM STYLE===========================*/
 
@@ -329,6 +349,9 @@ aside#execom ul li p{
     border-radius: 8px;
     color: #5B5B5B;
     border: 2px solid gray;
+}
+#btn-doc-upload:hover{
+    background: #EAEAEA;
 }
 #addDoc{
     margin-top: 5%;

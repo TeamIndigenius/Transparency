@@ -87,9 +87,9 @@
                                 <h2>Add Image</h2>
 
                                 <!-- limit to images only -->
-                                <form action="/eventArticle" method="post" enctype="multipart/form-data" accept="image/*">
+                                <form action="/eventArticle" method="post" enctype="multipart/form-data" accept="image/*" id="imageUpload">
                                     {{csrf_field()}}
-                                    <input id="imageupload" type="file" name="file_name" multiple="multiple">
+                                    <input id="imageupload" type="file" name="file_name">
                                     <input type="submit" name="add-img" value="Add">
                                 </form>
 
@@ -141,51 +141,17 @@
 
                     <p>No files to display</p>
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div> 
-                    @endif
-
                     <!-- limit to docs, pdf -->
                     <div id="filePreview">
                         
                     </div>
 
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div> 
-                     @endif
-
-                    <form action="/eventArticle" method="POST" enctype="multipart/form-data">
+                    <form action="/eventArticle" method="POST" enctype="multipart/form-data" id="fileUpload">
                         {{csrf_field()}}
                         <label id="btn-doc-upload">
-                           <i class="fa fa-upload"></i> Upload documents <input id="fileupload" type="file" name="file_name" multiple="" accept=".pdf,.doc,.docx">
-                        </label>
-                        <input id="addDoc" type="submit" name="add-doc" value="Add">
+                           Choose File <input id="fileupload" type="file" name="file_name"  accept=".pdf,.doc,.docx">
+                        </label>    
+                        <input id="addDoc" type="submit" name="add-doc" value="Upload">
                     </form>
 
                     
@@ -246,21 +212,22 @@
                 if (typeof (FileReader) != "undefined") {
                     var dvPreview = $("#imagePreview");
                     dvPreview.html("");
-                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png)$/;
                     $($(this)[0].files).each(function () {
                         var file = $(this);
                         if (regex.test(file[0].name.toLowerCase())) {
                             var reader = new FileReader();
                             reader.onload = function (e) {
                                 var img = $("<img />");
-                                img.attr("style", "height:100px;width: 100px;display:inline;");
+                                img.attr("style", "height:150px;width: 150px;display:inline;");
                                 img.attr("src", e.target.result);
                                 dvPreview.append(img);
                             }
                             reader.readAsDataURL(file[0]);
                         } else {
-                            alert(file[0].name + " is not a valid image file.");
+                            alert("Upload only jpeg, jpg, png files");
                             dvPreview.html("");
+                            imageUpload.reset();
                             return false;
                         }
                     });
@@ -279,7 +246,8 @@
                         if (regex.test(file[0].name.toLowerCase())) {
                             return true;
                         } else {
-                            alert(file[0].name + " is not a valid document file.");
+                            alert("Upload only pdf, doc, docx files");
+                            fileUpload.reset();
                             return false;
                         }
                     });
@@ -287,30 +255,30 @@
             });
         });
 
-        var selDiv = "";
+        // var selDiv = "";
         
-        document.addEventListener("DOMContentLoaded", init, false);
+        // document.addEventListener("DOMContentLoaded", init, false);
         
-        function init() {
-            document.querySelector('#fileupload').addEventListener('change', handleFileSelect, false);
-            selDiv = document.querySelector("#filePreview");
-        }
+        // function init() {
+        //     document.querySelector('#fileupload').addEventListener('change', handleFileSelect, false);
+        //     selDiv = document.querySelector("#filePreview");
+        // }
             
-        function handleFileSelect(e) {
+        // function handleFileSelect(e) {
             
-            if(!e.target.files) return;
+        //     if(!e.target.files) return;
             
-            selDiv.innerHTML = "";
+        //     selDiv.innerHTML = "";
             
-            var files = e.target.files;
-            for(var i=0; i<files.length; i++) {
-                var f = files[i];
+        //     var files = e.target.files;
+        //     for(var i=0; i<files.length; i++) {
+        //         var f = files[i];
                 
-                selDiv.innerHTML += f.name + "<br/>";
+        //         selDiv.innerHTML += f.name + "<br/>";
 
-            }
+        //     }
             
-        }
+        // }
     </script>
 
 
