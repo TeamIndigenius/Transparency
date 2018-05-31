@@ -16,33 +16,13 @@
             ->where('users.id', Auth::user()->id)
             ->select('positions.is_execom')
             ->value('is_execom');
-
-        $org_color = 'elektrons';
-        $org_photo = 'elektrons.png';
-
-        if ($org_id == 1){
-            $org_color = 'elektrons';
-            $org_photo = 'elektrons.png';
-        }
-        elseif ($org_id == 2){
-            $org_color = 'redbolts';
-            $org_photo = 'redbolts.png';
-        }
-        elseif ($org_id == 3){
-            $org_color = 'clovers';
-            $org_photo = 'clovers.png';
-        }
-        elseif ($org_id == 4){
-            $org_color = 'skimmers';
-            $org_photo = 'skimmers.png';
-        }
 	 ?>
 
 	<!--  For execom -->
 	@if($isExecom)
 		<div class="post" id="add-announcements"> 
 			<fieldset>
-				<legend align="left" class="{{ $org_color }}_font_color">Add Announcement</legend>
+				<legend align="left">Add Announcement</legend>
 				<form action="/timeline" method="POST">
 					{{ csrf_field() }}
 					<textarea id="placeholder" name="content" cols="" rows="" placeholder="Any announcements?" autofocus></textarea>
@@ -61,7 +41,6 @@
 	@if ($announcement->is_public == 1)
 	<div class="post">
 		<fieldset>
-			<!-- <legend align="left" class="{{ $org_color }}_font_color"> -->
 			<legend align="left">{{ $announcement->username }}: {{ $announcement->getPosition($announcement->membership_id) }}</legend>
 			<p>{{ $announcement->content }}</p>
 			<div class="post-details">

@@ -6,9 +6,7 @@
     width: 20%;
     text-align: center;
     color:  #f26522;/*orange*/
-    /*border-right: 4px solid #f26522;*//*orange*/
-    border-right-width: 4px;
-    border-right-style: solid;
+    border-right: 4px solid #f26522;/*orange*/
 
 }
 
@@ -20,32 +18,10 @@
     font-weight: 500;
     letter-spacing: 0.3em;
     font-family: 'Rubik', sans-serif;
-/*    border-bottom:4px solid #f26522;/*orange*/
-    border-bottom-style: solid;
-    border-bottom-width: 4px;
+    border-bottom:4px solid #f26522;/*orange*/
     line-height: 60px;
     text-align: center;
     margin: 0;
-}
-
-.elektrons_border_color{
-    border-bottom-color: #f26522;
-    border-right-color: #f26522;
-}
-
-.redbolts_border_color{
-    border-bottom-color: #CD0000;
-    border-right-color: #CD0000;
-}
-
-.clovers_border_color{
-    border-bottom-color: #00C957;
-    border-right-color: #00C957;
-}
-
-.skimmers_border_color{
-    border-bottom-color: #9932CC;
-    border-right-color: #9932CC;
 }
 
 aside#execom ul

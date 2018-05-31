@@ -101,7 +101,7 @@ textarea::placeholder{
 }
 
 .post-details a{
-	color: #262626;
+	color: #f26522;/*orange*/
 }
 
 #form-delete{
@@ -111,7 +111,7 @@ textarea::placeholder{
 #form-delete button{
 	border: none;
 	background-color: transparent;
-	color: #262626;
+	color: #f26522;/*orange*/
 	margin: 0;
 	padding: 0;
 }
@@ -215,19 +215,19 @@ textarea::placeholder{
 }
 
 .clovers{
-	color: #00C957;
+	color: #2eb82e;
 }
 
 .skimmers{
-	color: #9932CC;
+	color: #990099;
 }
 
 .redbolts{
-	color: #CD0000;
+	color: red;
 }
 
 .elektrons{
-	color: #f26522;
+	color:  #ff6600;
 }
 
 .add-comments{
@@ -254,12 +254,12 @@ textarea{
 }
 
 input[type=submit]{ /*submit buttons*/
-	color: #262626;
+	color: #f26522;
 	width: 80px;
 	height: 40px;
 	border-style: none;
 	border-radius: 3px;
-	background-color:#C4C4C4;
+	background-color:  rgba(242,101,34,0.2);
 }
 
 /*---------------------MODAL-------------------------------------*/
