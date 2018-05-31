@@ -153,8 +153,8 @@ nav li:hover .menu-sub
 
 .menu-sub  a:hover,.menu-sub  a:hover:after
 {
-    color: orange;
-
+    color: black;
+    text-decoration: underline;
 }
 
 

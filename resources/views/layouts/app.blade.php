@@ -70,24 +70,46 @@
                 </ul>       
             </header>
 <!--================= NAVIGATION ====================-->
-            <nav>
+            <?php 
+                $org_color = 'elektrons';
+                $org_photo = 'elektrons.png';
+
+                if ($org_id == 1){
+                    $org_color = 'elektrons';
+                    $org_photo = 'elektrons.png';
+                }
+                elseif ($org_id == 2){
+                    $org_color = 'redbolts';
+                    $org_photo = 'redbolts.png';
+                }
+                elseif ($org_id == 3){
+                    $org_color = 'clovers';
+                    $org_photo = 'clovers.png';
+                }
+                elseif ($org_id == 4){
+                    $org_color = 'skimmers';
+                    $org_photo = 'skimmers.png';
+                }
+             ?>
+
+            <nav class="{{ $org_color }}_bg_color">
                 <div id="nav-left">
                     <ul>
-                        <li ><a href="{{ url('/orgs') }}" id="org-select">ORGS</a>
+                        <li class="{{ $org_color }}_bg_color"><a href="{{ url('/orgs') }}" id="org-select">ORGS</a>
                             <ul>
-                                <li><a href="">clovers</a></li>
-                                <li><a href="">skimmers</a></li>
-                                <li><a href="">redbolts</a></li>
-                                <li><a href="">elektrons</a></li>
+                                <li><a id="clovers_hover" href="{{ url('accessOrg/3') }}">clovers</a></li>
+                                <li><a id="skimmers_hover" href="{{ url('accessOrg/4') }}">skimmers</a></li>
+                                <li><a id="redbolts_hover" href="{{ url('accessOrg/2') }}">redbolts</a></li>
+                                <li><a id="elektrons_hover" href="{{ url('accessOrg/1') }}">elektrons</a></li>
                             </ul>
-                        </li>
-                        <li id="li-home"><a href="{{ url('/timeline') }}">HOME</a></li>
+                        </li class="{{ $org_color }}_bg_color">
+                        <li class="{{ $org_color }}_bg_color" id="li-home"><a href="{{ url('/timeline') }}">HOME</a></li>
                     </ul>
                 </div>
                  <div id="nav-right">
                     <ul>
                         <!-- Archives a: redirect to the events list of the current SY -->
-                        <li><a href="{{ url('eventlist') }}">ARCHIVE</a> 
+                        <li class="{{ $org_color }}_bg_color"><a href="{{ url('eventlist') }}">ARCHIVE</a> 
                             <div class="menu-sub">
                                 <div class="menu-col-1">
                                     <h3 class="menu-category"> Events for A.Y.</h3>
@@ -123,14 +145,14 @@
 
                             </div>
                         </li>
-                        <li><a href="{{ url('/igps') }}">IGP</a></li>
+                        <li class="{{ $org_color }}_bg_color"><a href="{{ url('/igps') }}">IGP</a></li>
                     </ul>
                 </div>
             </nav>
 
 <!--================= COVER ====================-->
             <div id="cover">
-                <img src="img/covers/elektrons.png" onmouseover="showBtn()" onmouseout="hideBtn()" id="cover-img">
+                <img src="img/covers/{{ $org_photo }}" onmouseover="showBtn()" onmouseout="hideBtn()" id="cover-img">
                <!--  <span>
                     <h3>HELLO KA-SEMILYA !</h3>
                     <p>THE BEST ORG IN THE WORLD!</p>
@@ -155,46 +177,14 @@
             ?>
 
             <main>
-                <aside id="execom">
-                    <h4>EXECOM</h4>
+                <aside id="execom" class="{{ $org_color }}_border_color">
+                    <h4 class="{{ $org_color }}_font_color">EXECOM</h4>
                     <ul>
                         @foreach($officers as $officer)
                             <li><label>{{ $officer->first_name}} {{$officer->last_name }}</label>
-                                <p class="position">{{ $officer->position }}</p>
+                                <p class="position {{ $org_color }}_font_color">{{ $officer->position }}</p>
                             </li>
                         @endforeach
-
-                        <!-- <li><label> Juan Dela Cruz</label>
-                            <p class="position">Governor</p>
-                        </li>
-                        <li><label> Lily Cruz</label>
-                            <p class="position">Vice Governor</p>
-                        </li>
-                        <li><label> Bimb Aquino</label>
-                            <p class="position">VG Internal</p>
-                        </li>
-                        <li><label> Jose Rizal</label>
-                            <p class="position">VG External</p>
-                        </li>
-                        <li><label> Oh Susanna De Roses</label>
-                            <p class="position">Secretary</p>
-                        </li>
-                        <li><label > Apolinario Mabini</label>
-                            <p class="position">Asst. Secretary</p>
-                        </li>
-                        <li><label > Bruno Mars</label>
-                            <p class="position">Treasurer</p>
-                        </li>
-                        <li><label > Maria Makiling</label>
-                            <p class="position">Auditor</p>
-                        </li>
-                        <li><label> Ako Si Lakas</label>
-                            <p class="position">Execom</p>
-                        </li>
-                        <li><label > Ako Si Ganda</label>
-                            <p class="position">Execom</p>
-                        </li> -->
-
                     </ul>
                 </aside>
 

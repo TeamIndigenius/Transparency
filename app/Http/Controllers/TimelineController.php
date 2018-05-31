@@ -36,6 +36,7 @@ class TimelineController extends Controller
             ->join('users', 'memberships.user_id', '=', 'users.id')
             ->select('positions.position', 'users.first_name', 'users.last_name')
             ->where('memberships.org_id', $org_id)
+            ->where('positions.is_execom', 1)
             ->orderBy('positions.id', 'ASC')
             ->get();
         
@@ -53,7 +54,7 @@ class TimelineController extends Controller
         $id = Auth::user()->id;
         $membership = Membership::whereUser_id($id)->first();
 
-        return view('timeline', compact('announcements', 'membership', 'isExecom', 'officers'));
+        return view('timeline', compact('announcements', 'membership', 'isExecom', 'officers', 'org_id'));
     }
 
     /**
