@@ -20,7 +20,7 @@ body{
 /*===================== MAIN =====================*/
 main
 {
-    color: #f26522;/*orange*/
+    color: #262626;
     display: inline-flex;
     width: 100%;
     text-align: center;
@@ -55,8 +55,44 @@ textarea:focus{
 }
 
 /*===================== END OF MAIN =====================*/
+.elektrons_bg_color{
+    background-color: #f26522;
+}
+.redbolts_bg_color{
+    background-color: #CD0000;
+}
+.clovers_bg_color{
+    background-color: #00C957;
+}
+.skimmers_bg_color{
+    background-color: #9932CC;
+}
 
+.elektrons_font_color{
+    color: #f26522;
+}
+.redbolts_font_color{
+    color: #CD0000;
+}
+.clovers_font_color{
+    color: #00C957;
+}
+.skimmers_font_color{
+    color: #9932CC;
+}
 
+#elektrons_hover:hover{
+    background-color: #F4A460;
+}
+#clovers_hover:hover{
+    background-color: #BDFCC9;
+}
+#skimmers_hover:hover{
+    background-color: #D8BFD8;
+}
+#redbolts_hover:hover{
+    background-color: #FFC1C1;
+}
 
 /*===================== FOOTER =====================*/
 #footer{
